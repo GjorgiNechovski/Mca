@@ -1,0 +1,6 @@
+.container{
+    height: 150px;
+    display: inline-block;
+    float: left;
+    padding: 20px;
+}

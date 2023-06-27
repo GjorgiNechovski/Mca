@@ -1,0 +1,9 @@
+<div *ngFor="let post of postList" class="container">
+    <a routerLink="/post/{{post.id}}">
+        <img src="{{post.thumbnailUrl}}">
+    </a>
+
+    <button (click)="removePost(post.id)">Delete Post</button>
+</div>
+
+<router-outlet></router-outlet>

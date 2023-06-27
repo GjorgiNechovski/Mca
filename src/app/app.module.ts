@@ -1,14 +1,27 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
+import { HttpClientModule } from '@angular/common/http';
 
 import { AppComponent } from './app.component';
+import { PostListComponent } from './components/post-list/post-list.component';
+import { FullPostViewComponent } from './components/full-post-view/full-post-view.component';
+import { RouterModule, Routes } from '@angular/router';
+
+const routes: Routes = [
+  {path: 'post/:id', component: FullPostViewComponent},
+  {path: 'posts', component: PostListComponent},
+  {path: '', redirectTo: '/posts', pathMatch: 'full'}
+]
 
 @NgModule({
   declarations: [
-    AppComponent
+    AppComponent,
+    PostListComponent
   ],
   imports: [
-    BrowserModule
+    BrowserModule,
+    HttpClientModule,
+    RouterModule.forRoot(routes)
   ],
   providers: [],
   bootstrap: [AppComponent]
