@@ -1,6 +1,35 @@
-.container{
-    height: 150px;
+.container {
+    width: 20%;
     display: inline-block;
-    float: left;
-    padding: 20px;
+    text-align: center;
+    margin-bottom: 20px;
+    padding: 1%;
+    margin-left: 2%;
+    background-color: rgb(198, 177, 248);
+    margin-top: 3%;
+}
+
+img {
+    width: 100%;
+    height: auto;
+    max-height: 300px;
+    max-width: 300px;
+}
+
+.buttons{
+    margin-top: 2%;
+}
+
+.deleteButton {
+    margin-left: 5%;
+}
+
+body {
+    background-color: rgb(221, 206, 255);
+    position: relative;
+}
+
+h1 {
+    font-size: 100%;
+    color: rgb(248, 102, 76);
 }

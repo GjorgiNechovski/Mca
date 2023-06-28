@@ -1,0 +1,25 @@
+body {
+    background-color: rgb(221, 206, 255);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+}
+
+.container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: rgb(198, 177, 248);
+    padding: 5%;
+}
+
+img {
+    width: 40%;
+    height: auto;
+    padding-right: 2%;
+}
+
+.text {
+    width: 58%;
+}

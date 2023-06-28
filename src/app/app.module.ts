@@ -6,6 +6,7 @@ import { AppComponent } from './app.component';
 import { PostListComponent } from './components/post-list/post-list.component';
 import { FullPostViewComponent } from './components/full-post-view/full-post-view.component';
 import { RouterModule, Routes } from '@angular/router';
+import { FormsModule } from '@angular/forms';
 
 const routes: Routes = [
   {path: 'post/:id', component: FullPostViewComponent},
@@ -21,7 +22,8 @@ const routes: Routes = [
   imports: [
     BrowserModule,
     HttpClientModule,
-    RouterModule.forRoot(routes)
+    RouterModule.forRoot(routes),
+    FormsModule
   ],
   providers: [],
   bootstrap: [AppComponent]

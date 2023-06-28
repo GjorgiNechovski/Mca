@@ -1,9 +1,44 @@
-<div *ngFor="let post of postList" class="container">
-    <a routerLink="/post/{{post.id}}">
+<body>
+
+  <div class="newPostContainer float-end">
+    <button (click)="toggleNewPost()" type="button" class="btn btn-primary">Add New Post</button>
+    <div *ngIf="newPostToggle" class="newPost">
+      <input type="text" [(ngModel)] = "newPost.tiitle" placeholder="Photo Title"><br>
+      <input type="text" [(ngModel)] = "newPost.thumbnailUrl"placeholder="Photo Url"><br>
+      <input type="text" [(ngModel)] = "newPost.body"placeholder="Photo Body"><br>
+      <button (click)="addPost()" type="button" class="btn btn-primary">Add New Post</button>
+
+    </div>
+
+  </div>
+
+
+  <div class="posts-container">
+    <div *ngFor="let post of postList" class="container">
+      <h1>{{post.tiitle}}</h1>
+      <a routerLink="/post/{{post.id}}">
         <img src="{{post.thumbnailUrl}}">
-    </a>
+      </a>
 
-    <button (click)="removePost(post.id)">Delete Post</button>
-</div>
+      <!--Buttons on the post-->
+      <div class="buttons">
+        <button (click)="editPost(post.id)" type="button" class="btn btn-warning">Edit Post</button>
+        <button (click)="removePost(post.id)" type="button" class="btn btn-danger deleteButton">Delete Post</button>
+      </div>
 
-<router-outlet></router-outlet>
+      <!--Editing the post-->
+      <div *ngIf="selectedPost && selectedPost.id === post.id">
+        <input type="text" [(ngModel)]="selectedPost.tiitle" placeholder="Title">
+        <input type="text" [(ngModel)]="selectedPost.thumbnailUrl" placeholder="Image URL">
+        <textarea [(ngModel)]="selectedPost.body" placeholder="Body"></textarea>
+
+        <!--Buttons on the editpost-->
+        <button (click)="saveChanges()" type="button" class="btn btn-primary">Save Changes</button>
+        <button (click)="cancelEdit()" type="button" class="btn btn-secondary">Cancel</button>
+
+
+      </div>
+    </div>
+  </div>
+
+</body>

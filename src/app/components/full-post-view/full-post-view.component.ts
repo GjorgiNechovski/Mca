@@ -9,18 +9,21 @@ import { FullPost } from 'src/app/classes/full-post';
   styleUrls: ['./full-post-view.component.css']
 })
 export class FullPostViewComponent implements OnInit {
+  post?: FullPost;
 
-  constructor(private fullPostService: FullPostService,
-              private route: ActivatedRoute) { }
+  constructor(
+    private fullPostService: FullPostService,
+    private route: ActivatedRoute
+  ) {}
 
-  post?: FullPost 
   ngOnInit(): void {
-    const id = +this.route.snapshot.paramMap.get('id')!;
-    this.getPostById(id)
+    const id = this.route.snapshot.paramMap.get('id');
+    if (id) {
+      this.getPostById(id);
+    }
   }
 
-  getPostById(id: number){
+  getPostById(id: string): void {
     this.post = this.fullPostService.getPostById(id);
   }
-
 }
